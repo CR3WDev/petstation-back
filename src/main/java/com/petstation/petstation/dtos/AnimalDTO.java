@@ -23,9 +23,9 @@ public class AnimalDTO {
     private int id;
     private String name;
     private String description;
-    private String imageURL;
     private String category;
     private int categoryId;
+    private int imageId;
     private int age;
 
     @JsonFormat(pattern = "dd/MM/yyyy")

@@ -19,8 +19,9 @@ public class Animal {
 	    private String name;
 	    private String description;
 
-		@Column(name = "image_url")
-	    private String imageURL;
+		@OneToOne
+		@JoinColumn(name = "image_id", nullable = false)
+	    private Image image;
 
 		@JsonFormat(pattern = "dd/MM/yyyy")
 		private LocalDate birthdate;
