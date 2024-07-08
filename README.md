@@ -38,6 +38,11 @@ Sistema Simples de Gerenciamento de Pets.
     spring.datasource.username=seu-usuario
     spring.datasource.password=sua-senha
     ```
+    Além do Banco configure o path que você deseja salvar as imagens da aplicação ou apenas crie um arquivo petstation-files no seu disco c:
+    ```properties
+     ## Image Storage Properties
+    file.upload-dir=c:/petstation-files/
+    ```
 3. Execute o Maven para baixar as dependências e compilar o projeto:
     ```bash
     mvn clean install
