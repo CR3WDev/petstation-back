@@ -32,7 +32,8 @@ Sistema Simples de Gerenciamento de Pets.
     ```bash
     git clone https://github.com/CR3WDev/petstation-back.git
     ```
-2. Configure o banco de dados local no arquivo `application-local.properties`:
+2. Configure o application.properties local no arquivo `application-local.properties`:
+    Altere as credênciais abaixo para usar o banco de sua escolha
     ```properties
     spring.datasource.url=jdbc:postgresql://localhost:5432/petstation
     spring.datasource.username=seu-usuario
