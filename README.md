@@ -32,11 +32,17 @@ Sistema Simples de Gerenciamento de Pets.
     ```bash
     git clone https://github.com/CR3WDev/petstation-back.git
     ```
-2. Configure o banco de dados local no arquivo `application-local.properties`:
+2. Configure o application.properties local no arquivo `application-local.properties`:
+    Altere as credênciais abaixo para usar o banco de sua escolha
     ```properties
     spring.datasource.url=jdbc:postgresql://localhost:5432/petstation
     spring.datasource.username=seu-usuario
     spring.datasource.password=sua-senha
+    ```
+    Além do Banco configure o path que você deseja salvar as imagens da aplicação ou apenas crie um arquivo petstation-files no seu disco c:
+    ```properties
+     ## Image Storage Properties
+    file.upload-dir=c:/petstation-files/
     ```
 3. Execute o Maven para baixar as dependências e compilar o projeto:
     ```bash
