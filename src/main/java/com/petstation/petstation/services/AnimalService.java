@@ -61,11 +61,11 @@ public class AnimalService {
     }
 
     public AnimalDTO update(AnimalDTO animalDTO) {
-    	Animal animal = animalRepository.findById(animalDTO.getId())
+		animalRepository.findById(animalDTO.getId())
 				.orElseThrow(()->new NotFoundException("Animal Not Found"));
 		LocalDate today = LocalDate.now();
 
-		if(animal.getBirthdate().isAfter(today)) {
+		if(animalDTO.getBirthdate().isAfter(today)) {
 			throw new InvalidDateException("Invalid Birthdate!");
 		}
 
