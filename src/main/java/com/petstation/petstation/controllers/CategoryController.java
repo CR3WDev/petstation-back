@@ -45,7 +45,7 @@ public class CategoryController {
     			return ResponseEntity.ok().body(categoryService.findById(id));
     }
     
-    @PutMapping("/{id}")
+    @PutMapping()
     public ResponseEntity<CategoryDTO> update(@RequestBody CategoryDTO categoryDTO) {
     	return ResponseEntity.ok().body(categoryService.update(categoryDTO));
     }

@@ -43,7 +43,7 @@ public class AnimalController {
     			return ResponseEntity.ok().body(animalService.findById(id));
     }
     
-    @PutMapping("/{id}")
+    @PutMapping()
     public ResponseEntity<AnimalDTO> update(@RequestBody AnimalDTO animalDTO) {
     	return ResponseEntity.ok().body(animalService.update(animalDTO));
     }

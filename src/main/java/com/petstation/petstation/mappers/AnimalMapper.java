@@ -22,16 +22,8 @@ public class AnimalMapper {
 		@Autowired
 	    private ModelMapper modelMapper;
 
-		@Autowired
-		private CategoryService categoryService;
-
 	    public AnimalDTO toAnimalDTO(Animal animalModel) {
-			LocalDate now = LocalDate.now();
-			AnimalDTO animalDTO = modelMapper.map(animalModel, AnimalDTO.class);
-			animalDTO.setAge(Period.between(animalDTO.getBirthdate(), now).getYears());
-			CategoryDTO categoryDTO = categoryService.findById(animalDTO.getCategoryId());
-			animalDTO.setCategory(categoryDTO.getName());
-	        return animalDTO;
+	        return modelMapper.map(animalModel, AnimalDTO.class);
 	    }
 	    
 	    public Animal toAnimal(AnimalDTO animalDTO) {

@@ -19,7 +19,18 @@ public class ApiExceptionHandler {
         return new ErrorDTO(
                 HttpStatus.NOT_FOUND.value(),
                 ex.getMessage(),
-                ex.getCause().getMessage()
+                ex.getCause() != null ? ex.getCause().getMessage() : null
+        );
+    }
+
+    @ExceptionHandler(value = {InvalidDateException.class})
+    @ResponseBody
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorDTO handlerInvalidDate(InvalidDateException ex) {
+        return new ErrorDTO(
+                HttpStatus.BAD_REQUEST.value(),
+                ex.getMessage(),
+                ex.getCause() != null ? ex.getCause().getMessage() : null
         );
     }
 
@@ -30,7 +41,7 @@ public class ApiExceptionHandler {
         return new ErrorDTO(
                 HttpStatus.INTERNAL_SERVER_ERROR.value(),
                 "Unknown error occurred",
-                ex.getCause().getMessage()
+                ex.getCause() != null ? ex.getCause().getMessage() : null
         );
     }
 }

@@ -31,31 +31,22 @@ public class CategoryService {
 	}
 	
     public CategoryDTO findById(int id) {
-    	Optional<Category> category = categoryRepository.findById(id);
+		Category category = categoryRepository.findById(id)
+				.orElseThrow(()->new NotFoundException("Category Not Found"));
     	
-    	if(category.isEmpty()) {
-    		throw new NotFoundException("Category Not Found!");
-    	}
-    	
-    	return categoryMapper.toCategoryDTO(category.get());
+    	return categoryMapper.toCategoryDTO(category);
     }
 
     public void deleteById(int id) {
-    	Optional<Category> category = categoryRepository.findById(id);
-    	
-    	if(category.isEmpty()) {
-    		throw new NotFoundException("Category Not Found");
-    	}
+    	categoryRepository.findById(id)
+				.orElseThrow(()->new NotFoundException("Category Not Found"));
     	
     	categoryRepository.deleteById(id);
     }
 
     public CategoryDTO update(CategoryDTO categoryDTO) {
-    	Optional<Category> category = categoryRepository.findById(categoryDTO.getId());
-    	
-    	if(category.isEmpty()) {
-    		throw new NotFoundException("Category Not Found");
-    	}
+		Category category = categoryRepository.findById(categoryDTO.getId())
+				.orElseThrow(()->new NotFoundException("Category Not Found"));
     	
     	Category categorySaved = categoryRepository.save(categoryMapper.toCategory(categoryDTO));
 
